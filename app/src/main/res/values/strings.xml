@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">KdApp</string>
+    <string name="app_home">首页</string>
+    <string name="app_mine">我的</string>
+    <string name="kdapp_splash">欢迎使用KDApp</string>
+
 </resources>

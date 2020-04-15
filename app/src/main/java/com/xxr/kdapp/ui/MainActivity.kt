@@ -1,7 +1,8 @@
-package com.xxr.kdapp
+package com.xxr.kdapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.xxr.kdapp.R
 
 class MainActivity : AppCompatActivity() {
 
