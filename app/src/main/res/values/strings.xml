@@ -4,4 +4,6 @@
     <string name="app_mine">我的</string>
     <string name="kdapp_splash">欢迎使用KDApp</string>
 
+    <string name="premission_denied_by_you">权限已经被您拒绝</string>
+    <string name="prompt_open_permission">如果不打开权限则无法使用该功能,点击确定去打开权限</string>
 </resources>

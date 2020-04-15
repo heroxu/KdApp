@@ -88,8 +88,8 @@ class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
         //如果有一些权限被永久的拒绝, 就需要转跳到 设置-->应用-->对应的App下去开启权限
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
             AppSettingsDialog.Builder(this)
-                .setTitle("权限已经被您拒绝")
-                .setRationale("如果不打开权限则无法使用该功能,点击确定去打开权限")
+                .setTitle(getString(R.string.premission_denied_by_you))
+                .setRationale(getString(R.string.prompt_open_permission))
                 .setRequestCode(REQUEST_SETTING_CODE) //用于onActivityResult回调做其它对应相关的操作
                 .build()
                 .show()
@@ -124,8 +124,8 @@ class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
             }
         }else{
             AppSettingsDialog.Builder(this)
-                .setTitle("权限已经被您拒绝")
-                .setRationale("如果不打开权限则无法使用该功能,点击确定去打开权限")
+                .setTitle(getString(R.string.premission_denied_by_you))
+                .setRationale(getString(R.string.prompt_open_permission))
                 .setRequestCode(REQUEST_SETTING_CODE) //用于onActivityResult回调做其它对应相关的操作
                 .build()
                 .show()
