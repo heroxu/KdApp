@@ -1,4 +1,4 @@
-package com.xxr.kdapp.ui
+package com.xxr.kdapp.ui.activity
 
 import android.Manifest
 import android.content.Intent
@@ -12,7 +12,11 @@ import kotlinx.android.synthetic.main.activity_splash.*
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
-
+/**
+ * Author: xuxiarong
+ * Date: 2020/4/13 12:10
+ * Description: 引导页面
+ */
 class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
 
@@ -88,8 +92,8 @@ class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
         //如果有一些权限被永久的拒绝, 就需要转跳到 设置-->应用-->对应的App下去开启权限
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
             AppSettingsDialog.Builder(this)
-                .setTitle(getString(R.string.premission_denied_by_you))
-                .setRationale(getString(R.string.prompt_open_permission))
+                .setTitle("权限已经被您拒绝")
+                .setRationale("如果不打开权限则无法使用该功能,点击确定去打开权限")
                 .setRequestCode(REQUEST_SETTING_CODE) //用于onActivityResult回调做其它对应相关的操作
                 .build()
                 .show()
@@ -124,8 +128,8 @@ class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
             }
         }else{
             AppSettingsDialog.Builder(this)
-                .setTitle(getString(R.string.premission_denied_by_you))
-                .setRationale(getString(R.string.prompt_open_permission))
+                .setTitle("权限已经被您拒绝")
+                .setRationale("如果不打开权限则无法使用该功能,点击确定去打开权限")
                 .setRequestCode(REQUEST_SETTING_CODE) //用于onActivityResult回调做其它对应相关的操作
                 .build()
                 .show()
