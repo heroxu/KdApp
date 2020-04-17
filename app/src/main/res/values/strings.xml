@@ -11,7 +11,23 @@
 
     <string name="change_user_type">切换身份</string>
 
-    <string name="security_user">安保身份</string>
-    <string name="visitors_user">访客身份</string>
+    <string name="security_user">点击切换到安保身份</string>
+    <string name="visitors_user">点切换到访客身份</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="hint_login_username">请输入手机号</string>
+    <string name="hint_login_password">请输入密码</string>
+    <string name="login">登陆</string>
+    <string name="login_forget_pwd">忘记密码</string>
+    <string name="register_new_user">注册新用户</string>
+    <string name="contact_customer_service">联系客服</string>
+    <string name="about_us">关于我们</string>
 
 </resources>

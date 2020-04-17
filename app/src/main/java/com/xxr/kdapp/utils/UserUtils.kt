@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import com.xxr.kdapp.constant.Constant
+import com.xxr.kdapp.ui.activity.RegisterAndLoginActivity
 import com.xxr.kdapp.ui.activity.SecurityMainActivity
 import com.xxr.kdapp.ui.activity.VisitorsMainActivity
 
@@ -18,13 +19,16 @@ class UserUtils {
     companion object {
 
         fun isSecurity(): Boolean {
-            return SPUtils.instance?.getInt(Constant.USER_TYPE, 1) == Constant.SECURITY_USER
+            return SPUtils.instance?.getInt(Constant.USER_TYPE, Constant.UNREGISTER_USER) == Constant.SECURITY_USER
         }
 
         fun isVisitors(): Boolean {
-            return SPUtils.instance?.getInt(Constant.USER_TYPE, 1) == Constant.VISITORS_USER
+            return SPUtils.instance?.getInt(Constant.USER_TYPE, Constant.UNREGISTER_USER) == Constant.VISITORS_USER
         }
 
+        fun isLogin(): Boolean {
+            return SPUtils.instance?.getInt(Constant.USER_TYPE, Constant.UNREGISTER_USER) != Constant.UNREGISTER_USER
+        }
 
         fun navToMain(context: Context?) {
 
@@ -39,8 +43,11 @@ class UserUtils {
                 isVisitors() -> {
                     Intent(context, VisitorsMainActivity::class.java)
                 }
+                isLogin() -> {
+                    Intent(context, RegisterAndLoginActivity::class.java)
+                }
                 else -> {
-                    Intent(context, VisitorsMainActivity::class.java)
+                    Intent(context, RegisterAndLoginActivity::class.java)
                 }
             }
             context.startActivity(intent)

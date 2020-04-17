@@ -38,9 +38,7 @@ class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
         alphaAnimation?.duration = 2000
         alphaAnimation?.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationEnd(arg0: Animation) {
-                val intent = Intent(this@SplashActivity, VisitorsMainActivity::class.java)
-                startActivity(intent)
-                finish()
+                UserUtils.navToMain(this@SplashActivity)
             }
 
             override fun onAnimationRepeat(animation: Animation) {}

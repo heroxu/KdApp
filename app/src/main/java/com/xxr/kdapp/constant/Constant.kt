@@ -20,6 +20,9 @@ object Constant {
     //安保用户唯一标识
     val SECURITY_USER_UUID = "security_user_uuid"
 
+    const val UNREGISTER_USER = 0
+
+
     const val VISITORS_USER = 1
 
     const val SECURITY_USER = 2
