@@ -1,7 +1,6 @@
 package com.xxr.kdapp.ui.activity
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
 import androidx.fragment.app.FragmentTransaction
@@ -10,9 +9,9 @@ import com.flyco.tablayout.listener.OnTabSelectListener
 import com.xxr.kdapp.R
 import com.xxr.kdapp.base.BaseActivity
 import com.xxr.kdapp.mvp.mode.TabEntity
-import com.xxr.kdapp.ui.fragment.HomeFragment
-import com.xxr.kdapp.ui.fragment.MineFragment
-import kotlinx.android.synthetic.main.activity_main.*
+import com.xxr.kdapp.ui.fragment.security.SecurityHomeFragment
+import com.xxr.kdapp.ui.fragment.security.SecurityMineFragment
+import kotlinx.android.synthetic.main.activity_security_main.*
 import java.util.ArrayList
 
 /**
@@ -20,7 +19,7 @@ import java.util.ArrayList
  * Date: 2020/4/13 11:20
  * Description: 全局Activity基类
  */
-class MainActivity : BaseActivity() {
+class SecurityMainActivity : BaseActivity() {
 
 
     private val mTitles = arrayOf("首页", "我的")
@@ -32,15 +31,15 @@ class MainActivity : BaseActivity() {
 
     private val mTabEntities = ArrayList<CustomTabEntity>()
 
-    private var mHomeFragment: HomeFragment? = null
-    private var mMineFragment: MineFragment? = null
+    private var mHomeFragment: SecurityHomeFragment? = null
+    private var mMineFragment: SecurityMineFragment? = null
 
     //默认为0
     private var mIndex = 0
 
 
     override fun layoutId(): Int {
-        return R.layout.activity_main
+        return R.layout.activity_security_main
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +48,7 @@ class MainActivity : BaseActivity() {
         }
         super.onCreate(savedInstanceState)
         initTab()
-        tab_layout.currentTab = mIndex
+        tab_layout_security.currentTab = mIndex
         switchFragment(mIndex)
 
     }
@@ -65,14 +64,14 @@ class MainActivity : BaseActivity() {
             0 // 首页
             -> mHomeFragment?.let {
                 transaction.show(it)
-            } ?: HomeFragment.getInstance(mTitles[position]).let {
+            } ?: SecurityHomeFragment.getInstance(mTitles[position]).let {
                 mHomeFragment = it
                 transaction.add(R.id.fl_container, it, "home")
             }
             1  //发现
             -> mMineFragment?.let {
                 transaction.show(it)
-            } ?: MineFragment.getInstance(mTitles[position]).let {
+            } ?: SecurityMineFragment.getInstance(mTitles[position]).let {
                 mMineFragment = it
                 transaction.add(R.id.fl_container, it, "discovery") }
             else -> {
@@ -81,7 +80,7 @@ class MainActivity : BaseActivity() {
         }
 
         mIndex = position
-        tab_layout.currentTab = mIndex
+        tab_layout_security.currentTab = mIndex
         transaction.commitAllowingStateLoss()
     }
 
@@ -90,8 +89,8 @@ class MainActivity : BaseActivity() {
         (0 until mTitles.size)
             .mapTo(mTabEntities) { TabEntity(mTitles[it], mIconSelectIds[it], mIconUnSelectIds[it]) }
         //为Tab赋值
-        tab_layout.setTabData(mTabEntities)
-        tab_layout.setOnTabSelectListener(object : OnTabSelectListener {
+        tab_layout_security.setTabData(mTabEntities)
+        tab_layout_security.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
                 //切换Fragment
                 switchFragment(position)
@@ -119,7 +118,7 @@ class MainActivity : BaseActivity() {
 //        showToast("onSaveInstanceState->"+mIndex)
 //        super.onSaveInstanceState(outState)
         //记录fragment的位置,防止崩溃 activity被系统回收时，fragment错乱
-        if (tab_layout != null) {
+        if (tab_layout_security != null) {
             outState.putInt("currTabIndex", mIndex)
         }
     }

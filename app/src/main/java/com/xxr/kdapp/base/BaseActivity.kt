@@ -57,7 +57,7 @@ abstract class BaseActivity : AppCompatActivity(){
     }
 
     fun Context.showToast(content: String): Toast {
-        val toast = Toast.makeText(KDApplication.context, content, Toast.LENGTH_SHORT)
+        val toast = Toast.makeText(KDApplication.instance, content, Toast.LENGTH_SHORT)
         toast.show()
         return toast
     }

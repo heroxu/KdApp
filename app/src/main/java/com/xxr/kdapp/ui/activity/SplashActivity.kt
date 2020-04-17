@@ -7,7 +7,9 @@ import android.util.Log
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
+import com.xxr.kdapp.KDApplication
 import com.xxr.kdapp.R
+import com.xxr.kdapp.utils.UserUtils
 import kotlinx.android.synthetic.main.activity_splash.*
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
@@ -36,7 +38,7 @@ class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
         alphaAnimation?.duration = 2000
         alphaAnimation?.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationEnd(arg0: Animation) {
-                val intent = Intent(this@SplashActivity, MainActivity::class.java)
+                val intent = Intent(this@SplashActivity, VisitorsMainActivity::class.java)
                 startActivity(intent)
                 finish()
             }
@@ -56,7 +58,7 @@ class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
     private fun requestPermission() {
         val perms = arrayOf(Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
         if (EasyPermissions.hasPermissions(this, *perms)) {
-            navToMain()
+            UserUtils.navToMain(this)
         } else {
             // RC_CAMERA_AND_RECORD_AUDIO 请求码, 用于回调的时候判断是哪次申请 perms 要申请的权限
             EasyPermissions.requestPermissions(
@@ -150,11 +152,7 @@ class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
     }
 
 
-    private fun navToMain() {
-        val intent = Intent(this@SplashActivity, MainActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
+
 
 
 }

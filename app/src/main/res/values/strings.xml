@@ -6,4 +6,12 @@
 
     <string name="premission_denied_by_you">权限已经被您拒绝</string>
     <string name="prompt_open_permission">如果不打开权限则无法使用该功能,点击确定去打开权限</string>
+    <string name="entry_community">一键入园</string>
+    <string name="press_help">一键求助</string>
+
+    <string name="change_user_type">切换身份</string>
+
+    <string name="security_user">安保身份</string>
+    <string name="visitors_user">访客身份</string>
+
 </resources>
