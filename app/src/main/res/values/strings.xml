@@ -31,5 +31,6 @@
     <string name="contact_customer_service">联系客服</string>
     <string name="about_us">关于我们</string>
     <string name="send_message_code">发送验证码</string>
+    <string name="base_title">标题</string>
 
 </resources>

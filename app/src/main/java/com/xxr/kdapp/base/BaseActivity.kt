@@ -2,11 +2,15 @@ package com.xxr.kdapp.base
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatTextView
 import com.xxr.kdapp.KDApplication
+import com.xxr.kdapp.R
+import kotlinx.android.synthetic.main.layout_base_title_bar.view.*
 
 
 /**
@@ -15,6 +19,8 @@ import com.xxr.kdapp.KDApplication
  * Description: 全局Activity基类
  */
 abstract class BaseActivity : AppCompatActivity(){
+
+    private var mBaseTitleBar : BaseTitleBar? = null
 
     /**
      *  加载布局
@@ -38,6 +44,18 @@ abstract class BaseActivity : AppCompatActivity(){
         initData()
         initView()
     }
+
+    fun initTitleBar(titleBar : BaseTitleBar){
+        mBaseTitleBar = titleBar
+        mBaseTitleBar?.findViewById<View>(R.id.aiv_base_back)?.setOnClickListener {
+            finish()
+        }
+    }
+
+    fun setTitle(title : String){
+        mBaseTitleBar?.findViewById<AppCompatTextView>(R.id.atv_base_title)?.text = title
+    }
+
 
     /**
      * 打卡软键盘
