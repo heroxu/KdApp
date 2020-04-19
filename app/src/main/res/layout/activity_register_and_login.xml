@@ -60,7 +60,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@null"
+                        android:background="@drawable/bg_message_code_edittext"
                         android:hint="@string/hint_login_username"
                         android:inputType="textVisiblePassword"
                         android:maxLength="11"
@@ -134,6 +134,44 @@
                         android:src="@drawable/ic_password_visiable"
                         tools:ignore="ContentDescription"/>
             </LinearLayout>
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="13dp"
+                    tools:ignore="RtlSymmetry">
+
+                <EditText
+                        android:id="@+id/et_message_code"
+                        android:layout_height="match_parent"
+                        android:layout_width="150dp"
+                        android:background="@null"
+                        android:hint="@string/hint_message_code"
+                        android:inputType="textPassword"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/color_999999"
+                        android:textColorHint="@color/color_999999"
+                        android:textSize="14sp"
+                        tools:ignore="Autofill"/>
+
+                <TextView
+                        android:id="@+id/tv_send_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:layout_marginStart="30dp"
+                        android:scaleType="centerInside"
+                        android:textColor="@color/color_0000aa"
+                        android:text="@string/send_message_code"
+                        tools:ignore="ContentDescription"/>
+
+            </LinearLayout>
+
             <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"

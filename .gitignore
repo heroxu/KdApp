@@ -2,6 +2,11 @@
 .gradle
 .idea*
 /.idea
+/.idea/gradle.xml
+/.idea/misc.xml
+/.idea/codeStyles/Project.xml
+/.idea/*.xml
+
 gradlew
 gradlew.bat
 /local.properties
