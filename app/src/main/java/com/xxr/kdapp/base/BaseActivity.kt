@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.layout_base_title_bar.view.*
  * Date: 2020/4/16 14:20
  * Description: 全局Activity基类
  */
-abstract class BaseActivity : AppCompatActivity(){
+abstract class BaseActivity : AppCompatActivity(),BaseTitleBar.IBaseOnClickListener{
 
     private var mBaseTitleBar : BaseTitleBar? = null
 
@@ -41,19 +41,21 @@ abstract class BaseActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutId())
-        initData()
         initView()
+        initData()
     }
 
     fun initTitleBar(titleBar : BaseTitleBar){
         mBaseTitleBar = titleBar
-        mBaseTitleBar?.findViewById<View>(R.id.aiv_base_back)?.setOnClickListener {
-            finish()
-        }
+        mBaseTitleBar?.setBackClickListener(this)
     }
 
     fun setTitle(title : String){
-        mBaseTitleBar?.findViewById<AppCompatTextView>(R.id.atv_base_title)?.text = title
+        mBaseTitleBar?.setTitleText(title)
+    }
+
+    override fun onBackClick() {
+        finish()
     }
 
 
