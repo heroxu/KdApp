@@ -6,12 +6,11 @@ import android.content.SharedPreferences
 import java.util.*
 
 /**
- * <pre>
- * author: Blankj
- * blog  : http://blankj.com
- * time  : 2016/08/02
- * desc  : utils about shared preference
-</pre> *
+/**
+ *     Author: xuxiarong
+ *     Date: 2020/4/17 16:20
+ *     Description: 全局的工具类
+*/
  */
 @SuppressLint("ApplySharedPref")
 class SPUtils {

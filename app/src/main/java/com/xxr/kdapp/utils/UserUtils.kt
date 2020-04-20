@@ -10,7 +10,6 @@ import com.xxr.kdapp.ui.activity.VisitorsMainActivity
 
 
 /**
- * Copyright (C), 2019-2020, 优必选科技有限公司
  * Author: xuxiarong
  * Date: 2020/4/17 16:20
  * Description: 用户相关的工具类

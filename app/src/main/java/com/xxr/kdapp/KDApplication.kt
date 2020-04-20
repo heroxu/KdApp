@@ -10,7 +10,6 @@ import kotlin.properties.Delegates
 
 
 /**
- * Copyright (C), 2019-2020, 优必选科技有限公司
  * Author: xuxiarong
  * Date: 2020/4/16 15:07
  * Description: 全局Application
