@@ -24,6 +24,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="hint_login_username">请输入手机号</string>
     <string name="hint_login_password">请输入密码</string>
+    <string name="hint_login_account">请输入帐号</string>
     <string name="hint_message_code">请输入验证码</string>
     <string name="login">登陆</string>
     <string name="login_forget_pwd">忘记密码</string>
