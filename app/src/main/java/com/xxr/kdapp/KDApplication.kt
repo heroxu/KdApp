@@ -33,7 +33,7 @@ class KDApplication : Application() {
 
     private fun initApp() {
         Utils.init(this)
-        userType = SPUtils.instance?.getInt(Constant.USER_TYPE,2)!!
+        userType = SPUtils.instance?.getInt(Constant.USER_TYPE,Constant.LOGIN_OTHER)!!
     }
 
 }
