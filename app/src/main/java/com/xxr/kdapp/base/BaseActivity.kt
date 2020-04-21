@@ -18,9 +18,9 @@ import kotlinx.android.synthetic.main.layout_base_title_bar.view.*
  * Date: 2020/4/16 14:20
  * Description: 全局Activity基类
  */
-abstract class BaseActivity : AppCompatActivity(),BaseTitleBar.IBaseOnClickListener{
+abstract class BaseActivity : AppCompatActivity(){
 
-    private var mBaseTitleBar : BaseTitleBar? = null
+    protected lateinit var mBaseTitleBar : BaseTitleBar
 
     /**
      *  加载布局
@@ -47,17 +47,11 @@ abstract class BaseActivity : AppCompatActivity(),BaseTitleBar.IBaseOnClickListe
 
     fun initTitleBar(titleBar : BaseTitleBar){
         mBaseTitleBar = titleBar
-        mBaseTitleBar?.setBackClickListener(this)
+        mBaseTitleBar.setLeftIcon(R.drawable.ic_base_back)
+            .setLeftIconClickListener(View.OnClickListener {
+                finish()
+            })
     }
-
-    fun setTitle(title : String){
-        mBaseTitleBar?.setTitleText(title)
-    }
-
-    override fun onBackClick() {
-        finish()
-    }
-
 
     /**
      * 打卡软键盘

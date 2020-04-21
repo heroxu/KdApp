@@ -10,8 +10,6 @@ import kotlinx.android.synthetic.main.layout_base_title_bar.view.*
 
 class BaseTitleBar : LinearLayout {
 
-    private var mIBaseOnClickListener : IBaseOnClickListener? =null
-
     constructor(mContext: Context) : super(mContext) {
         val context = mContext
     }
@@ -22,42 +20,59 @@ class BaseTitleBar : LinearLayout {
 
     init {
         LayoutInflater.from(context).inflate(R.layout.layout_base_title_bar, this)
-        aiv_base_left_icon.setOnClickListener{
-            mIBaseOnClickListener?.onBackClick()
-        }
     }
 
-    fun setTitleText(text: String) {
-        atv_base_title.text = text
-    }
-
-    fun setBackClickListener(listener:IBaseOnClickListener){
-        mIBaseOnClickListener = listener
-    }
-
-    fun setRightText(rightText : String){
-        atv_base_right_text.visibility  = View.VISIBLE
-        aiv_base_right_icon.visibility  = View.GONE
-        atv_base_right_text.text = rightText
-    }
-
-    fun setRightIcon(resourceId : Int){
-        atv_base_right_text.visibility  = View.GONE
-        aiv_base_right_icon.visibility  = View.VISIBLE
+    fun setLeftIcon(resourceId: Int) : BaseTitleBar{
+        aiv_base_left_icon.visibility = View.VISIBLE
         aiv_base_right_icon.setImageResource(resourceId)
+        return this
     }
 
-    fun setRightTextAndIcon(rightText : String,resourceId : Int){
-        atv_base_right_text.visibility  = View.VISIBLE
-        aiv_base_right_icon.visibility  = View.VISIBLE
+    fun setLeftIconClickListener(listener: OnClickListener): BaseTitleBar{
+        aiv_base_left_icon.setOnClickListener(listener)
+        return this
+    }
+
+
+    fun setLeftText(resourceId: Int) : BaseTitleBar{
+        atv_base_left_text.visibility = View.VISIBLE
+        atv_base_left_text.text = resources.getText(resourceId)
+        return this
+    }
+
+    fun setLeftTextClickListener(listener: OnClickListener) : BaseTitleBar{
+        atv_base_left_text.setOnClickListener(listener)
+        return this
+    }
+
+
+    fun setTitleText(resourceId: Int) : BaseTitleBar{
+        atv_base_title.visibility = View.VISIBLE
+        atv_base_title.text = resources.getText(resourceId)
+        return this
+    }
+
+
+    fun setRightIconClickListener(listener: OnClickListener) : BaseTitleBar{
+        aiv_base_left_icon.setOnClickListener(listener)
+        return this
+    }
+
+    fun setRightIcon(resourceId: Int) : BaseTitleBar{
+        aiv_base_right_icon.visibility = View.VISIBLE
         aiv_base_right_icon.setImageResource(resourceId)
-        atv_base_right_text.text = rightText
+        return this
     }
 
-    interface IBaseOnClickListener{
-        fun onBackClick()
-//        fun onRightTextClick()
-//        fun onRightIconClick()
+    fun setRightText(resourceId: Int) : BaseTitleBar{
+        atv_base_right_text.visibility = View.VISIBLE
+        atv_base_right_text.text = resources.getText(resourceId)
+        return this
+    }
+
+    fun setRightTextClickListener(listener: OnClickListener) : BaseTitleBar{
+        atv_base_right_text.setOnClickListener(listener)
+        return this
     }
 
 }

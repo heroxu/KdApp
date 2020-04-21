@@ -1,90 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:layout_height="48dp" xmlns:tools="http://schemas.android.com/tools"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:baselineAligned="false"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:orientation="horizontal">
 
         <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                style="@style/TitleBarLinerLayout">
 
             <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/aiv_base_left_icon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_base_back" />
+                    style="@style/TitleBarImage"
+                    android:src="@drawable/ic_base_back"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/atv_base_left_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:textColor="@color/color_base_title"
-                    android:textSize="19sp"
-                    android:visibility="gone" />
+                    style="@style/TitleBarText"
+                    android:visibility="gone"
+                    tools:text="@string/base_title"
+                    tools:visibility="visible"/>
         </LinearLayout>
 
         <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="horizontal">
+                style="@style/TitleBarLinerLayout">
 
             <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/atv_base_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="@string/base_title"
-                    android:textColor="@color/color_base_title"
-                    android:textSize="19sp" />
+                    style="@style/TitleBarText"
+                    tools:text="@string/base_title"/>
         </LinearLayout>
 
         <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:visibility="invisible">
+               style="@style/TitleBarLinerLayout">
 
             <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/aiv_base_right_icon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_base_refresh" />
+                    style="@style/TitleBarImage"
+                    android:src="@drawable/ic_base_refresh"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:visibility="gone"
+                    android:layout_gravity="end"
+                    tools:visibility="visible"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/atv_base_right_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"/>
+                    style="@style/TitleBarText"
+                    android:visibility="gone"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    tools:text="@string/base_title"
+                    tools:visibility="visible"/>
         </LinearLayout>
 
 
     </LinearLayout>
 
-    <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:background="@color/color_999999" />
-</RelativeLayout>
+    <include layout="@layout/layout_divider"/>
+
+</LinearLayout>

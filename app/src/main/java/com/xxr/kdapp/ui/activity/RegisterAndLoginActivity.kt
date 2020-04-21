@@ -1,105 +1,164 @@
 package com.xxr.kdapp.ui.activity
 
-import android.text.Editable
-import android.text.TextWatcher
-import androidx.core.widget.addTextChangedListener
+import android.annotation.SuppressLint
+import android.os.CountDownTimer
+import android.view.View
+import android.widget.EditText
 import com.xxr.kdapp.R
 import com.xxr.kdapp.base.BaseActivity
 import com.xxr.kdapp.constant.Constant
+import com.xxr.kdapp.listener.LoginTextWatcher
+import com.xxr.kdapp.utils.LogUtils
+import com.xxr.kdapp.utils.RegexUtils
 import com.xxr.kdapp.utils.SPUtils
 import com.xxr.kdapp.utils.UserUtils
-import com.xxr.kdapp.utils.Utils
 import kotlinx.android.synthetic.main.activity_register_and_login.*
-import java.util.regex.Pattern
 
 class RegisterAndLoginActivity : BaseActivity() {
 
-    private var mLoginType: Int = Constant.LOGIN_ACCOUNT
-    private var mIsMatchPhone = false;
-    private var mIsMatchMessageCode = false;
+    private var mLoginType: Int = Constant.LOGIN_PHONE_MESSAGE_CODE
+    private var mMessageCodeTickCount = 0
 
     override fun layoutId(): Int {
         return R.layout.activity_register_and_login
     }
 
     override fun initData() {
-        setTitle("登录注册")
 
-        et_mobile.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
+    }
 
-            }
+    @SuppressLint("StringFormatMatches")
+    override fun initView() {
+        initTitleBar(btb_login_title)
+        mBaseTitleBar
+            .setTitleText(R.string.title_login)
+            .setRightText(R.string.login_with_message_verification)
+            .setRightTextClickListener(View.OnClickListener {
+                changeLoginUi()
+            })
 
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        arrayListOf(et_account, et_password, et_mobile, et_message_code).forEach {
+            it.addTextChangedListener(object : LoginTextWatcher {
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    LogUtils.d(it.text)
+                    changeTipImageStatus(it)
+                    checkLoginStatus()
 
-            }
+                }
+            })
+        }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                mIsMatchPhone = isMatch(Constant.PHONE_REGEX,s!!)
-                checkLogin()
-            }
 
-        })
-
-        et_message_code.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                mIsMatchMessageCode = s!!.length == 6
-                checkLogin()
-
-            }
-
-        })
 
         btn_login.setOnClickListener {
-            if (mIsMatchMessageCode && mIsMatchPhone) {
-                SPUtils.instance?.put(Constant.USER_TYPE,Constant.VISITORS_USER)
-                UserUtils.navToMain(this)
+            SPUtils.instance?.put(Constant.USER_TYPE, Constant.VISITORS_USER)
+            UserUtils.navToMain(this)
+        }
+
+        aiv_clean_account.setOnClickListener {
+            et_account.text.clear()
+        }
+
+        aiv_password_visible.setOnClickListener {
+            if (et_password.inputType == Constant.PASSWORD_VISIBLE) {
+                et_password.inputType = Constant.PASSWORD_INVISIBLE
+                aiv_password_visible.setImageResource(R.drawable.ic_password_invisibility)
+            } else {
+                et_password.inputType = Constant.PASSWORD_VISIBLE
+                aiv_password_visible.setImageResource(R.drawable.ic_password_visibility)
+            }
+
+        }
+
+        aiv_clean_mobile.setOnClickListener {
+            et_mobile.text.clear()
+        }
+
+        atv_send_message.setOnClickListener {
+            if (mMessageCodeTickCount == 0) {
+                mCountDownTimer.start()
+                atv_send_message.setText(R.string.send_message_code)
+                atv_send_message.setTextColor(resources.getColor(R.color.color_code_enable))
             }
         }
     }
 
-    override fun initView() {
-        initTitleBar(btb_login_title)
+    private var mCountDownTimer: CountDownTimer = object : CountDownTimer(120 * 1000, 1000) {
+        override fun onTick(millisUntilFinished: Long) {
+            mMessageCodeTickCount++
+            atv_send_message.text = String.format(resources.getString(R.string.retry_send,120-mMessageCodeTickCount))
+            atv_send_message.setTextColor(resources.getColor(R.color.color_code_disable))
+        }
+        override fun onFinish() {
+            mMessageCodeTickCount = 0
+            atv_send_message.setText(R.string.send_message_code)
+            atv_send_message.setTextColor(resources.getColor(R.color.color_code_enable))
+        }
     }
 
-    fun checkLogin(){
-        if(mIsMatchMessageCode && mIsMatchPhone){
+    private fun changeTipImageStatus(editText: EditText) {
+        when (editText.id) {
+            R.id.et_account -> {
+                aiv_clean_account.visibility = if (editText.text.isEmpty()) {
+                    View.GONE
+                } else {
+                    View.VISIBLE
+                }
+            }
+            R.id.et_password -> {
+                aiv_password_visible.visibility = if (editText.text.isEmpty()) {
+                    View.GONE
+                } else {
+                    View.VISIBLE
+                }
+            }
+            R.id.et_mobile -> {
+                aiv_clean_mobile.visibility = if (editText.text.isEmpty()) {
+                    View.GONE
+                } else {
+                    View.VISIBLE
+                }
+            }
+            R.id.et_message_code -> {
+            }
+            else -> {
+                LogUtils.d(editText.text)
+            }
+        }
+    }
+
+
+    private fun changeLoginUi() {
+        btn_login.setBackgroundColor(resources.getColor(R.color.color_login_disable))
+        if (mLoginType == Constant.LOGIN_PHONE_MESSAGE_CODE) {
+            mLoginType = Constant.LOGIN_ACCOUNT_PASSWORD
+            mBaseTitleBar.setRightText(R.string.login_with_password)
+            ll_login_with_account.visibility = View.VISIBLE
+            ll_login_with_message_code.visibility = View.GONE
+        } else if (mLoginType == Constant.LOGIN_ACCOUNT_PASSWORD) {
+            mLoginType = Constant.LOGIN_PHONE_MESSAGE_CODE
+            mBaseTitleBar.setRightText(R.string.login_with_message_verification)
+            ll_login_with_message_code.visibility = View.VISIBLE
+            ll_login_with_account.visibility = View.GONE
+        }
+        checkLoginStatus()
+    }
+
+    fun checkLoginStatus() {
+
+        var loginEnable = false
+        if (mLoginType == Constant.LOGIN_PHONE_MESSAGE_CODE) {
+            loginEnable =
+                RegexUtils.isMobileSimple(et_mobile.text) && et_message_code.length() == Constant.MESSAGE_CODE_LENGTH
+        } else if (mLoginType == Constant.LOGIN_ACCOUNT_PASSWORD) {
+            loginEnable = et_account.text.isNotEmpty() && et_password.text.isNotEmpty()
+        }
+
+        if (loginEnable) {
             btn_login.setBackgroundColor(resources.getColor(R.color.color_login_enable))
-        }else{
+        } else {
             btn_login.setBackgroundColor(resources.getColor(R.color.color_login_disable))
         }
     }
-
-//    override fun onRightTextClick() {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
-//
-//    override fun onRightIconClick() {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
-
-    /** 判断是否匹配正*
-
-    @paramregex正则表达式
-
-    @paraminput要匹配的字符串
-
-    @return{@code true}: 匹配{@code false}: 不匹配
-
-     */
-
-    fun  isMatch(regex :String ,input : CharSequence ) : Boolean{
-        return  input.isNotEmpty() && Pattern.matches(regex,input);
-
-    }
-
-
 
 }

@@ -1,0 +1,42 @@
+<resources>
+
+    <dimen name="txt_size_10">10sp</dimen>
+    <dimen name="txt_size_11">11sp</dimen>
+    <dimen name="txt_size_12">12sp</dimen>
+    <dimen name="txt_size_13">13sp</dimen>
+    <dimen name="txt_size_14">14sp</dimen>
+    <dimen name="txt_size_15">15sp</dimen>
+    <dimen name="txt_size_16">16sp</dimen>
+    <dimen name="txt_size_17">17sp</dimen>
+    <dimen name="txt_size_18">18sp</dimen>
+    <dimen name="txt_size_19">19sp</dimen>
+    <dimen name="txt_size_20">20sp</dimen>
+    <dimen name="txt_size_21">21sp</dimen>
+    <dimen name="txt_size_22">22sp</dimen>
+    <dimen name="txt_size_23">23sp</dimen>
+    <dimen name="txt_size_24">24sp</dimen>
+    <dimen name="txt_size_25">25sp</dimen>
+    <dimen name="txt_size_26">26sp</dimen>
+    <dimen name="txt_size_27">27sp</dimen>
+    <dimen name="txt_size_28">28sp</dimen>
+    <dimen name="txt_size_29">29sp</dimen>
+    <dimen name="txt_size_30">30sp</dimen>
+    <dimen name="txt_size_31">31sp</dimen>
+    <dimen name="txt_size_32">32sp</dimen>
+    <dimen name="txt_size_33">33sp</dimen>
+    <dimen name="txt_size_34">34sp</dimen>
+    <dimen name="txt_size_35">35sp</dimen>
+    <dimen name="txt_size_36">36sp</dimen>
+
+    <dimen name="margin_common_start">10dp</dimen>
+    <dimen name="margin_common_end">10dp</dimen>
+    <dimen name="margin_common_top">10dp</dimen>
+    <dimen name="margin_common_bottom">10dp</dimen>
+    <dimen name="padding_common_start">10dp</dimen>
+    <dimen name="padding_common_end">10dp</dimen>
+
+    <dimen name="base_divider_height">1px</dimen>
+    <dimen name="image_size_24">24dp</dimen>
+    <dimen name="edit_text_hint_size">14sp</dimen>
+
+</resources>
