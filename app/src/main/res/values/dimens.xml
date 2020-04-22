@@ -1,5 +1,14 @@
 <resources>
 
+    <dimen name="txt_size_1">1sp</dimen>
+    <dimen name="txt_size_2">2sp</dimen>
+    <dimen name="txt_size_3">3sp</dimen>
+    <dimen name="txt_size_4">4sp</dimen>
+    <dimen name="txt_size_5">5sp</dimen>
+    <dimen name="txt_size_6">6sp</dimen>
+    <dimen name="txt_size_7">7sp</dimen>
+    <dimen name="txt_size_8">8sp</dimen>
+    <dimen name="txt_size_9">9sp</dimen>
     <dimen name="txt_size_10">10sp</dimen>
     <dimen name="txt_size_11">11sp</dimen>
     <dimen name="txt_size_12">12sp</dimen>

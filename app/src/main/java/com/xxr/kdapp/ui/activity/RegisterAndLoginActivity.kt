@@ -30,12 +30,7 @@ class RegisterAndLoginActivity : BaseActivity() {
     @SuppressLint("StringFormatMatches")
     override fun initView() {
         initTitleBar(btb_login_title)
-        mBaseTitleBar
-            .setTitleText(R.string.title_login)
-            .setRightText(R.string.login_with_message_verification)
-            .setRightTextClickListener(View.OnClickListener {
-                changeLoginUi()
-            })
+        mBaseTitleBar.setTitleText(R.string.title_login)
 
         arrayListOf(et_account, et_password, et_mobile, et_message_code).forEach {
             it.addTextChangedListener(object : LoginTextWatcher {
@@ -46,6 +41,22 @@ class RegisterAndLoginActivity : BaseActivity() {
 
                 }
             })
+        }
+
+        tv_fast_login.setOnClickListener {
+            tv_fast_login.setTextColor(resources.getColor(R.color.color_login_enable))
+            tv_password_login.setTextColor(resources.getColor(R.color.color_code_disable))
+            tv_password_login.setTextSize(resources.getDimension(R.dimen.txt_size_7))
+            tv_fast_login.setTextSize(resources.getDimension(R.dimen.txt_size_8))
+            changeLoginUi(Constant.LOGIN_ACCOUNT_PASSWORD)
+        }
+
+        tv_password_login.setOnClickListener {
+            tv_password_login.setTextColor(resources.getColor(R.color.color_login_enable))
+            tv_fast_login.setTextColor(resources.getColor(R.color.color_code_disable))
+            tv_password_login.setTextSize(resources.getDimension(R.dimen.txt_size_8))
+            tv_fast_login.setTextSize(resources.getDimension(R.dimen.txt_size_7))
+            changeLoginUi(Constant.LOGIN_PHONE_MESSAGE_CODE)
         }
 
 
@@ -128,16 +139,13 @@ class RegisterAndLoginActivity : BaseActivity() {
     }
 
 
-    private fun changeLoginUi() {
-        btn_login.setBackgroundColor(resources.getColor(R.color.color_login_disable))
-        if (mLoginType == Constant.LOGIN_PHONE_MESSAGE_CODE) {
+    private fun changeLoginUi(loginType: Int) {
+        if (loginType == Constant.LOGIN_PHONE_MESSAGE_CODE) {
             mLoginType = Constant.LOGIN_ACCOUNT_PASSWORD
-            mBaseTitleBar.setRightText(R.string.login_with_password)
             ll_login_with_account.visibility = View.VISIBLE
             ll_login_with_message_code.visibility = View.GONE
-        } else if (mLoginType == Constant.LOGIN_ACCOUNT_PASSWORD) {
+        } else if (loginType == Constant.LOGIN_ACCOUNT_PASSWORD) {
             mLoginType = Constant.LOGIN_PHONE_MESSAGE_CODE
-            mBaseTitleBar.setRightText(R.string.login_with_message_verification)
             ll_login_with_message_code.visibility = View.VISIBLE
             ll_login_with_account.visibility = View.GONE
         }
@@ -156,9 +164,9 @@ class RegisterAndLoginActivity : BaseActivity() {
 
         if (loginEnable) {
             btn_login.setBackgroundColor(resources.getColor(R.color.color_login_enable))
-        } else {
+        } /*else {
             btn_login.setBackgroundColor(resources.getColor(R.color.color_login_disable))
-        }
+        }*/
     }
 
 }
