@@ -33,5 +33,5 @@
     <string name="retry_send">%dS后重试</string>
 
     <string name="base_title">标题</string>
-
+    <string name="title_taking_picture">拍照上传</string>
 </resources>

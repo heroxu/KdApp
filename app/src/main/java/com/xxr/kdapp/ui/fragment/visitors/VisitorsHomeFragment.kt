@@ -3,6 +3,7 @@ package com.xxr.kdapp.ui.fragment.visitors
 import android.os.Bundle
 import com.xxr.kdapp.R
 import com.xxr.kdapp.base.BaseFragment
+import com.xxr.kdapp.utils.IntentUtils
 import kotlinx.android.synthetic.main.fragment_visitors_home.*
 
 /**
@@ -28,5 +29,10 @@ class VisitorsHomeFragment : BaseFragment(){
 
     override fun initView() {
         tv_visitors_home.text = "访客首页"
+        ll_enter_community.setOnClickListener {
+            IntentUtils.startTakingPicture(activity)
+        }
     }
+
+
 }
