@@ -8,13 +8,18 @@ import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureMimeType
 import com.luck.picture.lib.entity.LocalMedia
 import com.luck.picture.lib.listener.OnResultCallbackListener
+import com.lzy.okgo.OkGo
+import com.lzy.okgo.callback.StringCallback
+import com.lzy.okgo.model.Response
 import com.xxr.kdapp.R
 import com.xxr.kdapp.base.BaseActivity
 import com.xxr.kdapp.image.GlideEngine
+import com.xxr.kdapp.utils.FileUtils
 import com.xxr.kdapp.utils.LogUtils
 import kotlinx.android.synthetic.main.activity_taking_pictures.*
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
+import java.io.File
 
 class TakingPicturesActivity : BaseActivity() , EasyPermissions.PermissionCallbacks{
 
@@ -60,8 +65,29 @@ class TakingPicturesActivity : BaseActivity() , EasyPermissions.PermissionCallba
                                 Log.i(TAG, "是否压缩:" + media.isCompressed)
                                 Log.i(TAG, "压缩:" + media.compressPath)
                                 Log.i(TAG, "原图:" + media.path)
+
+//                                FileUtils.copyFile()
+                                val file = FileUtils.getFileByPath(media.path)
+                                LogUtils.d(file.path + "   ${file.name}")
+
                                 if(media.path.isNotEmpty()){
                                     GlideEngine.createGlideEngine().loadImage(this@TakingPicturesActivity,media.path,aiv_camera_picture)
+
+                                    OkGo.post<String>("http://10.10.18.55:8080/uploadFile")
+                                        .tag(this)
+//                                        .params("icon", File("D:\\xxr\\KdApp\\app\\src\\tempimage",media.path))
+                                        .params("file", file)
+                                        .isMultipart(true)
+                                        .execute(object : StringCallback() {
+                                            override fun onSuccess(response: Response<String>) {
+                                                LogUtils.e("上传成功" + response.body())
+                                            }
+
+                                            override fun onError(response: Response<String>) {
+                                                LogUtils.e("上传失败" + response.body())
+                                            }
+                                        })
+
                                 }
                                 Log.i(TAG, "是否裁剪:" + media.isCut)
                                 Log.i(TAG, "裁剪:" + media.cutPath)
