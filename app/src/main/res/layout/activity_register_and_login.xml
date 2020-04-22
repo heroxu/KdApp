@@ -35,12 +35,18 @@
                 android:id="@+id/tv_fast_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="@dimen/margin_common_start"
+                android:textColor="@color/color_login_enable"
+                android:textSize="@dimen/txt_size_14"
                 android:text="@string/login_with_message_verification" />
 
         <TextView
                 android:id="@+id/tv_password_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="@dimen/margin_common_start"
+                android:textColor="@color/color_login_disable"
+                android:textSize="@dimen/txt_size_12"
                 android:layout_alignParentEnd="true"
                 android:text="@string/login_with_password" />
 
