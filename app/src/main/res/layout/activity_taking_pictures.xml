@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.TakingPicturesActivity">
+
+    <com.xxr.kdapp.base.BaseTitleBar
+            android:id="@+id/base_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aiv_camera_picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:layout_marginStart="@dimen/padding_common_start"
+            android:layout_marginEnd="@dimen/margin_common_end"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aiv_taking_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_photo_camera"
+            />
+
+</FrameLayout>

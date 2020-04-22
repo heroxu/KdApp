@@ -19,6 +19,7 @@
             android:orientation="horizontal">
 
         <LinearLayout
+                android:id="@+id/ll_enter_community"
                 android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:layout_weight="1"
