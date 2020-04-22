@@ -1,28 +1,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:id="@+id/root"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/color_white"
-              android:fitsSystemWindows="true"
-              android:orientation="vertical">
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_white"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
 
     <com.xxr.kdapp.base.BaseTitleBar
             android:id="@+id/btb_login_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     <ImageView
             android:id="@+id/logo"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="28dp"
             android:scaleType="fitXY"
             android:src="@drawable/ic_security_logo"
-            tools:ignore="ContentDescription"/>
+            tools:ignore="ContentDescription" />
 
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/margin_common_start"
+            android:layout_marginEnd="@dimen/margin_common_end"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+        <TextView
+                android:id="@+id/tv_fast_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_with_message_verification" />
+
+        <TextView
+                android:id="@+id/tv_password_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="@string/login_with_password" />
+
+    </RelativeLayout>
 
     <LinearLayout
             android:id="@+id/ll_login_with_account"
@@ -45,7 +67,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                     style="@style/LoginTipImage"
-                    android:src="@drawable/ic_login_account"/>
+                    android:src="@drawable/ic_login_account" />
 
             <com.xxr.kdapp.view.LastInputEditTex
                     android:id="@+id/et_account"
@@ -53,13 +75,13 @@
                     android:hint="@string/hint_login_account"
                     android:inputType="text"
                     android:maxLength="11"
-                    tools:ignore="Autofill"/>
+                    tools:ignore="Autofill" />
 
             <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/aiv_clean_account"
                     style="@style/LoginTipImage"
                     android:src="@drawable/ic_clear"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout
@@ -73,7 +95,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                     style="@style/LoginTipImage"
-                    android:src="@drawable/ic_login_password"/>
+                    android:src="@drawable/ic_login_password" />
 
             <com.xxr.kdapp.view.LastInputEditTex
                     android:id="@+id/et_password"
@@ -81,13 +103,13 @@
                     android:hint="@string/hint_login_password"
                     android:inputType="textPassword"
                     android:maxLength="20"
-                    tools:ignore="Autofill"/>
+                    tools:ignore="Autofill" />
 
             <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/aiv_password_visible"
                     style="@style/LoginTipImage"
-                    android:visibility="gone"
-                    android:src="@drawable/ic_password_invisibility"/>
+                    android:src="@drawable/ic_password_invisibility"
+                    android:visibility="gone" />
         </LinearLayout>
 
     </LinearLayout>
@@ -96,9 +118,9 @@
             android:id="@+id/ll_login_with_message_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginStart="@dimen/padding_common_start"
             android:layout_marginEnd="@dimen/margin_common_end"
+            android:orientation="vertical"
             tools:ignore="UselessParent">
 
         <LinearLayout
@@ -111,7 +133,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                     style="@style/LoginTipImage"
-                    android:src="@drawable/ic_login_phone"/>
+                    android:src="@drawable/ic_login_phone" />
 
             <com.xxr.kdapp.view.LastInputEditTex
                     android:id="@+id/et_mobile"
@@ -119,17 +141,17 @@
                     android:hint="@string/hint_login_username"
                     android:inputType="number"
                     android:maxLength="11"
-                    tools:ignore="AutoFill"/>
+                    tools:ignore="AutoFill" />
 
             <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/aiv_clean_mobile"
                     style="@style/LoginTipImage"
                     android:src="@drawable/ic_clear"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
         </LinearLayout>
 
 
-        <LinearLayout
+        <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="@dimen/margin_common_top"
@@ -140,25 +162,28 @@
             <com.xxr.kdapp.view.LastInputEditTex
                     android:id="@+id/et_message_code"
                     style="@style/LoginBaseEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_message_code_edit"
                     android:hint="@string/hint_message_code"
                     android:inputType="number"
                     android:maxLength="6"
-                    android:layout_height="match_parent"
-                    android:layout_width="150dp"
                     android:padding="@dimen/padding_common_start"
-                    android:background="@drawable/bg_message_code_edit"
-                    tools:ignore="Autofill"/>
+                    tools:ignore="Autofill" />
 
             <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/atv_send_message"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:textSize="@dimen/txt_size_17"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:padding="@dimen/padding_common_start"
                     android:text="@string/send_message_code"
-                    android:textColor="@color/color_code_enable"/>
+                    android:textColor="@color/color_code_enable"
+                    android:textSize="@dimen/txt_size_17" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -168,12 +193,12 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="@dimen/padding_common_start"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="@dimen/margin_common_end"
-            android:layout_marginTop="25dp"
             android:layout_marginBottom="10dp"
             android:text="@string/login"
             android:textColor="@color/color_white"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -189,7 +214,7 @@
                 android:layout_weight="1"
                 android:text="@string/register_new_user"
                 android:textColor="@color/color_b0b8b2"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
         <TextView
                 android:id="@+id/forget_password"
@@ -199,7 +224,7 @@
                 android:layout_marginEnd="@dimen/margin_common_end"
                 android:text="@string/login_forget_pwd"
                 android:textColor="@color/color_b0b8b2"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
     </LinearLayout>
 
 
