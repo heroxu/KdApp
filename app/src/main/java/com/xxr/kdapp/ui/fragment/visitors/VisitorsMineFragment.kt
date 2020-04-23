@@ -31,7 +31,7 @@ class VisitorsMineFragment : BaseFragment() {
     override fun getLayoutId(): Int = R.layout.fragment_visitors_mine
 
     override fun initView() {
-        tv_visitors_change_user_type.setOnClickListener {
+        atv_visitors_change_user_type.setOnClickListener {
             var currentUserType = Constant.VISITORS_USER
             if (SPUtils.instance?.getInt(Constant.USER_TYPE, 1) == Constant.VISITORS_USER) {
                 currentUserType = 2
@@ -48,7 +48,7 @@ class VisitorsMineFragment : BaseFragment() {
     }
 
     fun setUserInfo() {
-        tv_visitors_change_user_type.text = "访客我的"
+        atv_visitors_change_user_type.text = "访客我的"
     }
 
 }

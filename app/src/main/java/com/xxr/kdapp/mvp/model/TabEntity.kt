@@ -1,4 +1,4 @@
-package com.xxr.kdapp.mvp.mode
+package com.xxr.kdapp.mvp.model
 
 import com.flyco.tablayout.listener.CustomTabEntity
 
