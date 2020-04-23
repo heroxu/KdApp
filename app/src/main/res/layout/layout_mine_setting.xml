@@ -1,61 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
-
-    <LinearLayout
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center_vertical"
+              android:orientation="vertical">
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:baselineAligned="false"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-        <LinearLayout
-                style="@style/TitleBarLinerLayout">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/aiv_mine_left_icon"
-                    style="@style/TitleBarImage"
-                    android:src="@drawable/ic_base_back"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/atv_base_left_text"
-                    style="@style/TitleBarText"
-                    tools:text="@string/base_title"
-                    tools:visibility="visible"/>
-        </LinearLayout>
-
-        <LinearLayout
-               style="@style/TitleBarLinerLayout">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/aiv_base_right_icon"
-                    style="@style/TitleBarImage"
-                    android:src="@drawable/ic_base_refresh"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:visibility="gone"
-                    android:layout_gravity="end"
-                    tools:visibility="visible"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/atv_base_right_text"
-                    style="@style/TitleBarText"
-                    android:visibility="gone"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:singleLine="true"
-                    android:gravity="end"
-                    tools:text="@string/base_title"
-                    tools:visibility="visible"/>
-        </LinearLayout>
-
-
-    </LinearLayout>
+            android:layout_height="48dp">
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aiv_mine_content_icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_common_start"
+                android:layout_marginEnd="@dimen/margin_20"
+                tools:src="@drawable/ic_mine_change_user"/>
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atv_mine_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/aiv_mine_content_icon"
+                android:layout_centerVertical="true"
+                android:textColor="@color/color_black"
+                android:textSize="16sp"
+                tools:text="@string/my_enter_record"
+                tools:visibility="visible" tools:ignore="RelativeOverlap"/>
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aiv_mine_arrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_common_start"
+                android:layout_marginEnd="@dimen/margin_common_end"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_next"
+        />
+    </RelativeLayout>
 
     <include layout="@layout/layout_divider"/>
 

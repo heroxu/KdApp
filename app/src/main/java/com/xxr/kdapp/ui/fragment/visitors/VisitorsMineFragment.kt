@@ -1,6 +1,7 @@
 package com.xxr.kdapp.ui.fragment.visitors
 
 import android.os.Bundle
+import android.view.View
 import com.xxr.kdapp.R
 import com.xxr.kdapp.base.BaseFragment
 import com.xxr.kdapp.constant.Constant
@@ -32,7 +33,8 @@ class VisitorsMineFragment : BaseFragment() {
     override fun getLayoutId(): Int = R.layout.fragment_visitors_mine
 
     override fun initView() {
-        atv_visitors_change_user_type.setOnClickListener {
+
+        msl_visitors_change_user_type.setOnClickListener {
             val currentUserType = when {
                 SPUtils.instance?.getInt(Constant.USER_TYPE, 1) == Constant.VISITORS_USER -> {
                      Constant.SECURITY_USER
@@ -48,7 +50,7 @@ class VisitorsMineFragment : BaseFragment() {
             UserUtils.navToMain(activity)
         }
 
-        atv_visitors_enter_record.setOnClickListener {
+        msl_visitors_enter_record.setOnClickListener {
             IntentUtils.startEnterRecord(activity)
         }
     }

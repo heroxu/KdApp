@@ -6,73 +6,50 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import com.xxr.kdapp.R
-import kotlinx.android.synthetic.main.layout_base_title_bar.view.*
+import kotlinx.android.synthetic.main.layout_mine_setting.view.*
 
 class MineSettingLayout : LinearLayout {
 
-    constructor(mContext: Context) : super(mContext) {
-        val context = mContext
+    constructor(context: Context) : this(context, null)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.MineSettingLayout)
+        val icon = typedArray.getResourceId(R.styleable.MineSettingLayout_mineIcon, R.drawable.ic_mine_change_user)
+        val text = typedArray.getText(R.styleable.MineSettingLayout_mineText)
+        val textSize = typedArray.getFloat(R.styleable.MineSettingLayout_mineTextSize, 16f)
+        val textColor =
+            typedArray.getColor(R.styleable.MineSettingLayout_mineTextColor, 0xff333333.toInt())
+        val arrowIcon = typedArray.getResourceId(R.styleable.MineSettingLayout_mineArrowIcon, R.drawable.ic_next)
+        typedArray.recycle()
+
+        aiv_mine_content_icon.setImageResource(icon)
+        atv_mine_content.text = text
+        atv_mine_content.textSize = textSize
+        atv_mine_content.setTextColor(textColor)
+        aiv_mine_arrow.setImageResource(arrowIcon)
+
     }
 
-    constructor(mContext: Context, mAttributeSet: AttributeSet) : super(mContext, mAttributeSet) {
-        val context = mContext
-    }
 
     init {
         LayoutInflater.from(context).inflate(R.layout.layout_mine_setting, this)
     }
 
-    fun setLeftIcon(resourceId: Int) : MineSettingLayout{
-        aiv_base_left_icon.visibility = View.VISIBLE
-        aiv_base_right_icon.setImageResource(resourceId)
-        return this
-    }
-
-    fun setLeftIconClickListener(listener: OnClickListener): MineSettingLayout{
-        aiv_base_left_icon.setOnClickListener(listener)
+    fun setContentIcon(resourceId: Int): MineSettingLayout {
+        aiv_mine_content_icon.visibility = View.VISIBLE
+        aiv_mine_content_icon.setImageResource(resourceId)
         return this
     }
 
 
-    fun setLeftText(resourceId: Int) : MineSettingLayout{
-        atv_base_left_text.visibility = View.VISIBLE
-        atv_base_left_text.text = resources.getText(resourceId)
+    fun setContentText(resourceId: Int): MineSettingLayout {
+        atv_mine_content.visibility = View.VISIBLE
+        atv_mine_content.text = resources.getText(resourceId)
         return this
     }
 
-    fun setLeftTextClickListener(listener: OnClickListener) : MineSettingLayout{
-        atv_base_left_text.setOnClickListener(listener)
+    fun setClickListener(listener: OnClickListener): MineSettingLayout {
+        setOnClickListener(listener)
         return this
     }
-
-
-    fun setTitleText(resourceId: Int) : MineSettingLayout{
-        atv_base_title.visibility = View.VISIBLE
-        atv_base_title.text = resources.getText(resourceId)
-        return this
-    }
-
-
-    fun setRightIconClickListener(listener: OnClickListener) : MineSettingLayout{
-        aiv_base_left_icon.setOnClickListener(listener)
-        return this
-    }
-
-    fun setRightIcon(resourceId: Int) : MineSettingLayout{
-        aiv_base_right_icon.visibility = View.VISIBLE
-        aiv_base_right_icon.setImageResource(resourceId)
-        return this
-    }
-
-    fun setRightText(resourceId: Int) : MineSettingLayout{
-        atv_base_right_text.visibility = View.VISIBLE
-        atv_base_right_text.text = resources.getText(resourceId)
-        return this
-    }
-
-    fun setRightTextClickListener(listener: OnClickListener) : MineSettingLayout{
-        atv_base_right_text.setOnClickListener(listener)
-        return this
-    }
-
 }
