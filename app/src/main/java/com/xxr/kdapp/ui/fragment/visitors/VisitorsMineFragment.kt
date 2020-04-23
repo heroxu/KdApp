@@ -53,5 +53,7 @@ class VisitorsMineFragment : BaseFragment() {
         msl_visitors_enter_record.setOnClickListener {
             IntentUtils.startEnterRecord(activity)
         }
+
+        msl_visitors_version_update.setRedPointVisible(View.VISIBLE)
     }
 }

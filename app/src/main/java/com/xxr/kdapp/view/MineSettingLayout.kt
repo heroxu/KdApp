@@ -35,6 +35,11 @@ class MineSettingLayout : LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.layout_mine_setting, this)
     }
 
+    fun setRedPointVisible(visible : Int){
+        view_mine_red_point.visibility = visible
+    }
+
+
     fun setContentIcon(resourceId: Int): MineSettingLayout {
         aiv_mine_content_icon.visibility = View.VISIBLE
         aiv_mine_content_icon.setImageResource(resourceId)

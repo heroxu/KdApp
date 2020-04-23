@@ -31,23 +31,21 @@ class SecurityMineFragment : BaseFragment() {
     override fun getLayoutId(): Int = R.layout.fragment_security_mine
 
     override fun initView() {
-        tv_security_change_user_type.setOnClickListener {
-            var currentUserType = Constant.VISITORS_USER
-            if (SPUtils.instance?.getInt(Constant.USER_TYPE, 1) == Constant.VISITORS_USER) {
-                currentUserType = 2
-            }
-            else if (SPUtils.instance?.getInt(Constant.USER_TYPE, 1) == Constant.SECURITY_USER) {
-                currentUserType = 1
-            }
-            else {
-                currentUserType = 1
+        msl_security_change_user_type.setOnClickListener {
+            val currentUserType = when {
+                SPUtils.instance?.getInt(Constant.USER_TYPE, 1) == Constant.VISITORS_USER -> {
+                    Constant.SECURITY_USER
+                }
+                SPUtils.instance?.getInt(Constant.USER_TYPE, 1) == Constant.SECURITY_USER -> {
+                    Constant.VISITORS_USER
+                }
+                else -> {
+                    Constant.UNREGISTER_USER
+                }
             }
             SPUtils.instance?.put(Constant.USER_TYPE, currentUserType)
             UserUtils.navToMain(activity)
         }
     }
 
-    fun setUserInfo() {
-        tv_security_change_user_type.text = "安保我的"
-    }
 }

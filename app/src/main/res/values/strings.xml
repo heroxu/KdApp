@@ -10,8 +10,12 @@
     <string name="press_help">一键求助</string>
 
     <string name="change_user_type">切换身份</string>
-    <string name="security_user">点击切换到安保身份</string>
-    <string name="visitors_user">点切换到访客身份</string>
+
+    <string name="change_security_user">点击切换到安保身份</string>
+    <string name="security_device_info">设备信息</string>
+    <string name="security_box_location">岗亭位置</string>
+
+    <string name="change_visitors_user">点切换到访客身份</string>
 
     <string name="my_enter_record">我的通行记录</string>
     <string name="mine_about_us">关于我们</string>

@@ -25,14 +25,26 @@
                 android:textColor="@color/color_black"
                 android:textSize="16sp"
                 tools:text="@string/my_enter_record"
-                tools:visibility="visible" tools:ignore="RelativeOverlap"/>
+                tools:visibility="visible"
+                tools:ignore="RelativeOverlap"/>
+
+        <View
+                android:id="@+id/view_mine_red_point"
+                android:layout_centerVertical="true"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_toStartOf="@+id/aiv_mine_arrow"
+                android:background="@drawable/bg_red_point"/>
+
         <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/aiv_mine_arrow"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/margin_common_start"
-                android:layout_marginEnd="@dimen/margin_common_end"
+                android:layout_marginEnd="5dp"
                 android:layout_alignParentEnd="true"
                 android:src="@drawable/ic_next"
         />
