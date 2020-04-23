@@ -2,6 +2,7 @@ package com.xxr.kdapp.utils
 
 import android.content.Context
 import android.content.Intent
+import com.xxr.kdapp.ui.activity.EnterRecordActivity
 import com.xxr.kdapp.ui.activity.TakingPicturesActivity
 
 
@@ -14,11 +15,15 @@ class IntentUtils {
 
     companion object{
         fun startTakingPicture (context: Context?){
-            startActivity(context)
+            startActivity(context,Intent(context,TakingPicturesActivity::class.java))
         }
 
-        private fun startActivity(context: Context?){
-            context?.startActivity(Intent(context,TakingPicturesActivity::class.java))
+        fun startEnterRecord (context: Context?){
+            startActivity(context,Intent(context,EnterRecordActivity::class.java))
+        }
+
+        private fun startActivity(context: Context?,intent: Intent){
+            context?.startActivity(intent)
         }
     }
 

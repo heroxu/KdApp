@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.xxr.kdapp.R
 import com.xxr.kdapp.base.BaseFragment
 import com.xxr.kdapp.constant.Constant
+import com.xxr.kdapp.utils.IntentUtils
 import com.xxr.kdapp.utils.SPUtils
 import com.xxr.kdapp.utils.UserUtils
 import kotlinx.android.synthetic.main.fragment_visitors_mine.*
@@ -32,23 +33,23 @@ class VisitorsMineFragment : BaseFragment() {
 
     override fun initView() {
         atv_visitors_change_user_type.setOnClickListener {
-            var currentUserType = Constant.VISITORS_USER
-            if (SPUtils.instance?.getInt(Constant.USER_TYPE, 1) == Constant.VISITORS_USER) {
-                currentUserType = 2
-            }
-            else if (SPUtils.instance?.getInt(Constant.USER_TYPE, 1) == Constant.SECURITY_USER) {
-                currentUserType = 1
-            }
-            else {
-                currentUserType = 1
+            val currentUserType = when {
+                SPUtils.instance?.getInt(Constant.USER_TYPE, 1) == Constant.VISITORS_USER -> {
+                     Constant.SECURITY_USER
+                }
+                SPUtils.instance?.getInt(Constant.USER_TYPE, 1) == Constant.SECURITY_USER -> {
+                    Constant.VISITORS_USER
+                }
+                else -> {
+                    Constant.UNREGISTER_USER
+                }
             }
             SPUtils.instance?.put(Constant.USER_TYPE, currentUserType)
             UserUtils.navToMain(activity)
         }
-    }
 
-    fun setUserInfo() {
-        atv_visitors_change_user_type.text = "访客我的"
+        atv_visitors_enter_record.setOnClickListener {
+            IntentUtils.startEnterRecord(activity)
+        }
     }
-
 }

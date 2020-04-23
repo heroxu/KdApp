@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_marginStart="@dimen/margin_common_start"
-        android:layout_marginEnd="@dimen/margin_common_end"
-        android:orientation="horizontal">
+              android:layout_width="match_parent"
+              android:layout_height="180dp"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_marginStart="@dimen/margin_common_start"
+              android:layout_marginEnd="@dimen/margin_common_end"
+              android:layout_marginTop="@dimen/margin_common_top"
+              android:orientation="horizontal"
+              tools:ignore="MissingDefaultResource">
 
     <androidx.appcompat.widget.AppCompatImageView
+            android:layout_marginStart="@dimen/margin_common_start"
             android:id="@+id/aiv_item_enter_picture"
             android:layout_gravity="center_vertical"
             android:layout_width="100dp"
@@ -26,24 +29,40 @@
                 android:id="@+id/atv_item_community_name"
                 android:layout_width="wrap_content"
                 android:gravity="center_vertical"
-                android:layout_height="53dp"
+                android:textSize="16sp"
+                android:textColor="@color/color_black"
+                android:layout_height="50dp"
                 tools:text="@string/record_community_name"/>
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/atv_item_enter_time"
                 android:layout_width="wrap_content"
-                android:layout_height="53dp"
+                android:layout_height="50dp"
                 android:gravity="center_vertical"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textColor="@color/color_black"
                 tools:text="@string/record_enter_time"/>
-        <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/atv_enter_status"
-                android:textSize="14sp"
-                android:textColor="@color/color_black"
-                android:layout_width="wrap_content"
-                android:gravity="center_vertical"
-                android:layout_height="53dp"
-                tools:text="@string/record_enter_status"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:textSize="16sp"
+                    android:textColor="@color/color_black"
+                    android:layout_width="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_height="50dp"
+                    android:text="@string/record_enter_status"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atv_enter_status"
+                    android:textSize="18sp"
+                    android:textColor="@color/color_black"
+                    android:layout_width="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_height="50dp"
+                    tools:text="@string/record_enter_status"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 
