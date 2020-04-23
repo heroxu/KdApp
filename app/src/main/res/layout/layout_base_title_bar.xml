@@ -6,7 +6,7 @@
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:baselineAligned="false"
@@ -14,7 +14,6 @@
             android:orientation="horizontal">
 
         <LinearLayout
-                android:layout_weight="1"
                 style="@style/TitleBarLinerLayout">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -31,7 +30,6 @@
         </LinearLayout>
 
         <LinearLayout
-                android:layout_weight="1"
                 android:gravity="center"
                 style="@style/TitleBarLinerLayout">
 
@@ -42,7 +40,6 @@
         </LinearLayout>
 
         <LinearLayout
-                android:layout_weight="1"
                style="@style/TitleBarLinerLayout">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -69,7 +66,7 @@
         </LinearLayout>
 
 
-    </androidx.appcompat.widget.AppCompatTextView>
+    </LinearLayout>
 
     <include layout="@layout/layout_divider"/>
 
