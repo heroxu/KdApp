@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_marginStart="@dimen/margin_common_start"
+        android:layout_marginEnd="@dimen/margin_common_end"
+        android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aiv_item_enter_picture"
+            android:layout_gravity="center_vertical"
+            android:layout_width="100dp"
+            android:layout_height="160dp"
+            tools:src="@drawable/ic_security_logo"/>
+
+    <LinearLayout
+            android:layout_marginStart="@dimen/margin_common_start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_common_top"
+            android:layout_marginBottom="@dimen/margin_common_bottom"
+            android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atv_item_community_name"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_height="53dp"
+                tools:text="@string/record_community_name"/>
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atv_item_enter_time"
+                android:layout_width="wrap_content"
+                android:layout_height="53dp"
+                android:gravity="center_vertical"
+                android:textSize="14sp"
+                android:textColor="@color/color_black"
+                tools:text="@string/record_enter_time"/>
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atv_enter_status"
+                android:textSize="14sp"
+                android:textColor="@color/color_black"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_height="53dp"
+                tools:text="@string/record_enter_status"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

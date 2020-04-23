@@ -8,7 +8,7 @@ import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
 import com.xxr.kdapp.R
 import com.xxr.kdapp.base.BaseActivity
-import com.xxr.kdapp.mvp.mode.TabEntity
+import com.xxr.kdapp.mvp.model.TabEntity
 import com.xxr.kdapp.ui.fragment.security.SecurityHomeFragment
 import com.xxr.kdapp.ui.fragment.security.SecurityMineFragment
 import kotlinx.android.synthetic.main.activity_security_main.*

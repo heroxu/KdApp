@@ -34,4 +34,8 @@
 
     <string name="base_title">标题</string>
     <string name="title_taking_picture">拍照上传</string>
+    <string name="record_community_name">小区名字: %s</string>
+    <string name="record_enter_time">入区时刻: %s</string>
+    <string name="record_enter_status">入区状态: %s</string>
+
 </resources>

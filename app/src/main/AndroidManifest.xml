@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          package="com.xxr.kdapp">
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.xxr.kdapp">
     <!-- 获取GSM网络信息状态，如当前的网络连接是否有效 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> <!-- 允许访问Wi-Fi网络状态信息 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> <!-- 允许获取Wi-Fi网络状态改变信息 -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/> <!-- 访问网络 -->
-    <uses-permission android:name="android.permission.INTERNET"/> <!-- 读取手机状态 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许访问Wi-Fi网络状态信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 允许获取Wi-Fi网络状态改变信息 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 访问网络 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 读取手机状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission
             android:name="android.permission.READ_LOGS"
-            tools:ignore="ProtectedPermissions"/> <!-- SD 卡读写权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-
+            tools:ignore="ProtectedPermissions" /> <!-- SD 卡读写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
             android:name=".KDApplication"
@@ -26,24 +25,21 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:usesCleartextTraffic="true"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.TakingPicturesActivity">
-        </activity>
-        <activity android:name=".ui.activity.RegisterAndLoginActivity">
-        </activity>
+        <activity android:name=".ui.activity.MyEnterRecordActivity"></activity>
+        <activity android:name=".ui.activity.TakingPicturesActivity"></activity>
+        <activity android:name=".ui.activity.RegisterAndLoginActivity"></activity>
         <activity
                 android:name=".ui.activity.SplashActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:theme="@style/AppTheme.NoActionBar.FullScreen">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.VisitorsMainActivity">
-        </activity>
-        <activity android:name=".ui.activity.SecurityMainActivity">
-        </activity>
+        <activity android:name=".ui.activity.VisitorsMainActivity"></activity>
+        <activity android:name=".ui.activity.SecurityMainActivity"></activity>
     </application>
 
 </manifest>
