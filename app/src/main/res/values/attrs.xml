@@ -53,5 +53,12 @@
         <attr name="metaButtonBarButtonStyle" format="reference"/>
     </declare-styleable>
 
+    <declare-styleable name="MineSettingLayout">
+        <attr name="mineIcon" format="reference" />
+        <attr name="mineText" format="string" />
+        <attr name="mineTextSize" format="float" />
+        <attr name="mineTextColor" format="color" />
+        <attr name="mineArrowIcon" format="reference" />
+    </declare-styleable>
 
 </resources>

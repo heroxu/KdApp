@@ -4,6 +4,6 @@ data class EnterRecordModel(
     var name: String,
     var imgUrl: String,
     var enterTime : Long,
-    var enterStatus:Boolean
+    var enterStatus:Int
 )
 

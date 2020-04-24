@@ -1,30 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
     <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/atv_visitors_change_user_type"
+            style="@style/TitleBarText"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/app_mine"
+            />
+
+    <include layout="@layout/layout_divider"/>
+
+
+    <com.xxr.kdapp.view.MineSettingLayout
+            android:id="@+id/msl_visitors_change_user_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
-            android:gravity="center"
-            android:text="@string/security_user"
-            android:textColor="#0f0"
-            android:textSize="20sp"/>
-
-
-    <TextView
-            android:id="@+id/atv_visitors_enter_record"
+            app:mineIcon="@drawable/ic_mine_change_user"
+            app:mineText="@string/change_user_type"
+            app:mineTextColor="@color/color_black"
+            />
+    <com.xxr.kdapp.view.MineSettingLayout
+            android:id="@+id/msl_visitors_enter_record"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="@string/security_user"
-            android:textColor="#0f0"
-            android:textSize="20sp"/>
-
+            app:mineIcon="@drawable/ic_mine_enter_record"
+            app:mineTextColor="@color/color_black"
+            app:mineText="@string/my_enter_record"/>
+    <com.xxr.kdapp.view.MineSettingLayout
+            android:id="@+id/msl_visitors_about_us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mineIcon="@drawable/ic_about_us"
+            app:mineTextColor="@color/color_black"
+            app:mineText="@string/about_us"/>
+    <com.xxr.kdapp.view.MineSettingLayout
+            android:id="@+id/msl_visitors_version_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mineIcon="@drawable/ic_version_update"
+            app:mineTextColor="@color/color_black"
+            app:mineText="@string/mine_version_update"/>
 </LinearLayout>

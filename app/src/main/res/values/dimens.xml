@@ -44,6 +44,8 @@
     <dimen name="padding_common_start">10dp</dimen>
     <dimen name="padding_common_end">10dp</dimen>
 
+    <dimen name="margin_20">20dp</dimen>
+
     <dimen name="base_divider_height">1px</dimen>
     <dimen name="image_size_24">24dp</dimen>
     <dimen name="edit_text_hint_size">14sp</dimen>

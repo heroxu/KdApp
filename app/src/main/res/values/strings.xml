@@ -11,9 +11,15 @@
 
     <string name="change_user_type">切换身份</string>
 
+    <string name="change_security_user">点击切换到安保身份</string>
+    <string name="security_device_info">设备信息</string>
+    <string name="security_box_location">岗亭位置</string>
 
-    <string name="security_user">点击切换到安保身份</string>
-    <string name="visitors_user">点切换到访客身份</string>
+    <string name="change_visitors_user">点切换到访客身份</string>
+
+    <string name="my_enter_record">我的通行记录</string>
+    <string name="mine_about_us">关于我们</string>
+    <string name="mine_version_update">版本更新</string>
 
     <string name="title_login">"登陆注册"</string>
 
@@ -34,8 +40,14 @@
 
     <string name="base_title">标题</string>
     <string name="title_taking_picture">拍照上传</string>
+
+    <string name="title_enter_record">通行记录</string>
+
     <string name="record_community_name">小区名字: %s</string>
     <string name="record_enter_time">入区时刻: %s</string>
-    <string name="record_enter_status">入区状态: %s</string>
+    <string name="record_enter_status">入区状态：</string>
+    <string name="record_enter_allow">允许通行</string>
+    <string name="record_enter_refused">被拒绝</string>
+    <string name="record_enter_cancel">已取消</string>
 
 </resources>

@@ -28,6 +28,11 @@ class BaseTitleBar : LinearLayout {
         return this
     }
 
+    fun setLeftIconVisible(visible: Int) : BaseTitleBar{
+        aiv_base_left_icon.visibility = visible
+        return this
+    }
+
     fun setLeftIconClickListener(listener: OnClickListener): BaseTitleBar{
         aiv_base_left_icon.setOnClickListener(listener)
         return this
