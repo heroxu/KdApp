@@ -28,7 +28,6 @@ class VisitorsHomeFragment : BaseFragment(){
     override fun getLayoutId(): Int = R.layout.fragment_visitors_home
 
     override fun initView() {
-        tv_visitors_home.text = "访客首页"
         ll_enter_community.setOnClickListener {
             IntentUtils.startTakingPicture(activity)
         }

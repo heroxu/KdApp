@@ -11,6 +11,7 @@ import com.xxr.kdapp.base.BaseActivity
 import com.xxr.kdapp.mvp.model.TabEntity
 import com.xxr.kdapp.ui.fragment.security.SecurityHomeFragment
 import com.xxr.kdapp.ui.fragment.security.SecurityMineFragment
+import com.xxr.kdapp.utils.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_security_main.*
 import java.util.ArrayList
 
@@ -124,6 +125,7 @@ class SecurityMainActivity : BaseActivity() {
     }
 
     override fun initView() {
+        StatusBarUtil.setRootViewFitsSystemWindows(this,false);
 
     }
 
