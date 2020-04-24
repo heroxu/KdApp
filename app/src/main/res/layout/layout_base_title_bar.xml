@@ -14,6 +14,7 @@
             android:orientation="horizontal">
 
         <LinearLayout
+                android:layout_weight="1"
                 style="@style/TitleBarLinerLayout">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -40,6 +41,7 @@
         </LinearLayout>
 
         <LinearLayout
+                android:layout_weight="1"
                style="@style/TitleBarLinerLayout">
 
             <androidx.appcompat.widget.AppCompatImageView
