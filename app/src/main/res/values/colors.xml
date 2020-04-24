@@ -26,5 +26,7 @@
     <color name="color_enter_refused">#cc0033</color>
     <color name="color_enter_cancel">#9a9a9a</color>
 
+    <!--color_title-->
+    <color name="color_title_bar">#C4D5ED</color>
 
 </resources>

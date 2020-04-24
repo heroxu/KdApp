@@ -38,7 +38,7 @@ class RecordAdapter(var mContext: Context, var mDataList: List<EnterRecordModel>
             String.format(mContext.resources.getString(R.string.record_community_name), enterRecord.name)
         holder.mAtvEnterTime.text = String.format(
             mContext.resources.getString(R.string.record_enter_time),
-            SimpleDateFormat("YYYY年MM月dd日 hh:mm:ss").format(enterRecord.enterTime)
+            SimpleDateFormat("yyyy年mm月dd日 hh:mm:ss").format(enterRecord.enterTime)
         )
         if (enterRecord.enterStatus == Constant.ENTER_ALLOW) {
             holder.mAtvEnterStatus.text = mContext.resources.getString(R.string.record_enter_allow)
