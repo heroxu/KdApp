@@ -9,6 +9,7 @@ import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
 import com.xxr.kdapp.KDApplication
 import com.xxr.kdapp.R
+import com.xxr.kdapp.utils.IntentUtils
 import com.xxr.kdapp.utils.UserUtils
 import kotlinx.android.synthetic.main.activity_splash.*
 import pub.devrel.easypermissions.AppSettingsDialog
@@ -38,7 +39,9 @@ class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
         alphaAnimation?.duration = 2000
         alphaAnimation?.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationEnd(arg0: Animation) {
-                UserUtils.navToMain(this@SplashActivity)
+//                UserUtils.navToMain(this@SplashActivity)
+                IntentUtils.startLocation(this@SplashActivity)
+
             }
 
             override fun onAnimationRepeat(animation: Animation) {}
@@ -54,9 +57,10 @@ class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
      * 去申请权限
      */
     private fun requestPermission() {
-        val perms = arrayOf(Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        val perms = arrayOf(Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.ACCESS_FINE_LOCATION)
         if (EasyPermissions.hasPermissions(this, *perms)) {
-            UserUtils.navToMain(this)
+//            UserUtils.navToMain(this)
+            IntentUtils.startLocation(this)
         } else {
             // RC_CAMERA_AND_RECORD_AUDIO 请求码, 用于回调的时候判断是哪次申请 perms 要申请的权限
             EasyPermissions.requestPermissions(
