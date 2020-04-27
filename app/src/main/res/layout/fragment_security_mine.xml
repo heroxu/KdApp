@@ -5,53 +5,65 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-            style="@style/TitleBarText"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:text="@string/app_mine" />
 
-    <include layout="@layout/layout_divider" />
-
-
-    <com.xxr.kdapp.view.MineSettingLayout
-            android:id="@+id/msl_security_change_user_type"
-            android:layout_width="match_parent"
+    <com.xxr.kdapp.view.StatusBarHeightView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:mineIcon="@drawable/ic_mine_change_user"
-            app:mineText="@string/change_user_type"
-            app:mineTextColor="@color/color_black" />
+            android:layout_alignParentEnd="true"
+            app:use_type="use_padding_top"
+            android:orientation="vertical" >
+        <!--这里放内容布局或View-->
 
-    <com.xxr.kdapp.view.MineSettingLayout
-            android:id="@+id/msl_security_enter_record"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:mineIcon="@drawable/ic_device_info"
-            app:mineText="@string/security_device_info"
-            app:mineTextColor="@color/color_black" />
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TitleBarText"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/app_mine"
+        />
 
-    <com.xxr.kdapp.view.MineSettingLayout
-            android:id="@+id/msl_security_box_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:mineIcon="@drawable/ic_box_location"
-            app:mineText="@string/security_box_location"
-            app:mineTextColor="@color/color_black" />
+        <include layout="@layout/layout_divider"/>
 
-    <com.xxr.kdapp.view.MineSettingLayout
-            android:id="@+id/msl_security_about_us"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:mineIcon="@drawable/ic_about_us"
-            app:mineText="@string/about_us"
-            app:mineTextColor="@color/color_black" />
 
-    <com.xxr.kdapp.view.MineSettingLayout
-            android:id="@+id/msl_security_version_update"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:mineIcon="@drawable/ic_version_update"
-            app:mineText="@string/mine_version_update"
-            app:mineTextColor="@color/color_black" />
+        <com.xxr.kdapp.view.MineSettingLayout
+                android:id="@+id/msl_security_change_user_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mineIcon="@drawable/ic_mine_change_user"
+                app:mineText="@string/change_user_type"
+                app:mineTextColor="@color/color_black"
+        />
+        <com.xxr.kdapp.view.MineSettingLayout
+                android:id="@+id/msl_security_enter_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mineIcon="@drawable/ic_device_info"
+                app:mineTextColor="@color/color_black"
+                app:mineText="@string/security_device_info"/>
+
+        <com.xxr.kdapp.view.MineSettingLayout
+                android:id="@+id/msl_security_box_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mineIcon="@drawable/ic_box_location"
+                app:mineTextColor="@color/color_black"
+                app:mineText="@string/security_box_location"/>
+        <com.xxr.kdapp.view.MineSettingLayout
+                android:id="@+id/msl_security_about_us"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mineIcon="@drawable/ic_about_us"
+                app:mineTextColor="@color/color_black"
+                app:mineText="@string/about_us"/>
+        <com.xxr.kdapp.view.MineSettingLayout
+                android:id="@+id/msl_security_version_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mineIcon="@drawable/ic_version_update"
+                app:mineTextColor="@color/color_black"
+                app:mineText="@string/mine_version_update"/>
+    </com.xxr.kdapp.view.StatusBarHeightView>
+
+
+
 </LinearLayout>

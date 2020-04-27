@@ -17,7 +17,8 @@
     <color name="color_b0b8b2">#b0b8b2</color>
     <color name="color_code_enable">#0066FF</color>
     <color name="color_code_disable">#9a9a9a</color>
-
+    <color name="indicator_selected_color">#cc0000</color>
+    <color name="indicator_normal_color">#9a9a9a</color>
     <color name="color_login_enable">#ff6600</color>
     <color name="color_login_disable">#aaaaaa</color>
     <color name="color_divider">#999999</color>
