@@ -125,8 +125,8 @@ class SecurityMainActivity : BaseActivity() {
     }
 
     override fun initView() {
-        StatusBarUtil.setRootViewFitsSystemWindows(this,false);
-
+        StatusBarUtil.setTranslucentStatus(this)
+        StatusBarUtil.setRootViewFitsSystemWindows(this,false)
     }
 
     override fun initData() {

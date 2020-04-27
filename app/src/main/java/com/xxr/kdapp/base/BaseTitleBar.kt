@@ -1,6 +1,7 @@
 package com.xxr.kdapp.base
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +21,15 @@ class BaseTitleBar : LinearLayout {
 
     init {
         LayoutInflater.from(context).inflate(R.layout.layout_base_title_bar, this)
+        initDefaultAttr()
+    }
+
+    private fun initDefaultAttr() {
+        setBackgroundColor(resources.getColor(R.color.color_title_bar))
+    }
+
+    fun setBaseTitleBarBackgroud(color : Int){
+        setBackgroundColor(color)
     }
 
     fun setLeftIcon(resourceId: Int) : BaseTitleBar{

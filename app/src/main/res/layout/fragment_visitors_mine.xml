@@ -9,6 +9,7 @@
     <androidx.appcompat.widget.AppCompatTextView
             style="@style/TitleBarText"
             android:gravity="center"
+            android:background="@color/color_title_bar"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="@string/app_mine"
