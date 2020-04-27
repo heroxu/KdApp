@@ -1,1 +1,4 @@
 /build
+/src/main/gen/com/xxr/kdapp/BuildConfig.java
+/src/main/gen/com/xxr/kdapp/Manifest.java
+/src/main/gen/com/xxr/kdapp/R.java
