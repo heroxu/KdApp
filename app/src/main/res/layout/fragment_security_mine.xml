@@ -8,26 +8,27 @@
 
     <!--这里放内容布局或View-->
 
-    <androidx.appcompat.widget.AppCompatTextView
-            style="@style/TitleBarText"
+    <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_height="70dp"
             android:background="@color/color_title_bar"
-            android:paddingTop="30dp"
-            android:paddingBottom="10dp"
-            android:layout_height="68dp"
-            android:gravity="center_horizontal"
-            android:text="@string/app_mine"
-    />
+            android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TitleBarText"
+                android:paddingTop="10dp"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                android:text="@string/app_mine"
+        />
+        <include layout="@layout/layout_divider"/>
+    </RelativeLayout>
 
-    <include layout="@layout/layout_divider"/>
-
-    <com.xxr.kdapp.view.StatusBarHeightView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:orientation="vertical"
-            app:use_type="use_padding_top">
-
+<!--    <com.xxr.kdapp.view.StatusBarHeightView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:orientation="vertical"-->
+<!--            app:use_type="use_padding_top">-->
 
 
         <com.xxr.kdapp.view.MineSettingLayout
@@ -67,7 +68,7 @@
                 app:mineIcon="@drawable/ic_version_update"
                 app:mineText="@string/mine_version_update"
                 app:mineTextColor="@color/color_black"/>
-    </com.xxr.kdapp.view.StatusBarHeightView>
+<!--    </com.xxr.kdapp.view.StatusBarHeightView>-->
 
 
 </LinearLayout>
