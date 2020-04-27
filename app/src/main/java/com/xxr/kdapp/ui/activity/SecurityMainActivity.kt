@@ -139,7 +139,7 @@ class SecurityMainActivity : BaseActivity() {
                 finish()
             } else {
                 mExitTime = System.currentTimeMillis()
-                showToast("再按一次退出程序")
+                showToast(resources.getString(R.string.press_the_exit_button_again))
             }
             return true
         }
