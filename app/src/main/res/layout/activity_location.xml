@@ -7,6 +7,8 @@
         tools:context=".ui.activity.LocationActivity">
 
     <TextView
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="20dp"
             android:id="@+id/tv_start_location"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

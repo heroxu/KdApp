@@ -46,16 +46,16 @@ class RegisterAndLoginActivity : BaseActivity() {
         tv_fast_login.setOnClickListener {
             tv_fast_login.setTextColor(resources.getColor(R.color.color_login_enable))
             tv_password_login.setTextColor(resources.getColor(R.color.color_code_disable))
-            tv_password_login.setTextSize(resources.getDimension(R.dimen.txt_size_7))
-            tv_fast_login.setTextSize(resources.getDimension(R.dimen.txt_size_8))
+            tv_password_login.textSize = resources.getDimension(R.dimen.txt_size_7)
+            tv_fast_login.textSize = resources.getDimension(R.dimen.txt_size_8)
             changeLoginUi(Constant.LOGIN_ACCOUNT_PASSWORD)
         }
 
         tv_password_login.setOnClickListener {
             tv_password_login.setTextColor(resources.getColor(R.color.color_login_enable))
             tv_fast_login.setTextColor(resources.getColor(R.color.color_code_disable))
-            tv_password_login.setTextSize(resources.getDimension(R.dimen.txt_size_8))
-            tv_fast_login.setTextSize(resources.getDimension(R.dimen.txt_size_7))
+            tv_password_login.textSize = resources.getDimension(R.dimen.txt_size_8)
+            tv_fast_login.textSize = resources.getDimension(R.dimen.txt_size_7)
             changeLoginUi(Constant.LOGIN_PHONE_MESSAGE_CODE)
         }
 
