@@ -2,6 +2,7 @@ package com.xxr.kdapp.utils
 
 import android.content.Context
 import android.content.Intent
+import com.xxr.kdapp.ui.activity.CardRecognitionActivity
 import com.xxr.kdapp.ui.activity.EnterRecordActivity
 import com.xxr.kdapp.ui.activity.LocationActivity
 import com.xxr.kdapp.ui.activity.TakingPicturesActivity
@@ -27,6 +28,9 @@ class IntentUtils {
             startActivity(context,Intent(context,LocationActivity::class.java))
         }
 
+        fun startCardRecognition (context: Context?){
+            startActivity(context,Intent(context, CardRecognitionActivity::class.java))
+        }
 
         private fun startActivity(context: Context?,intent: Intent){
             context?.startActivity(intent)
