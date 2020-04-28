@@ -12,6 +12,7 @@ gradlew.bat
 /local.properties
 .DS_Store
 /build
+/release
 /captures
 .externalNativeBuild
 *apk
