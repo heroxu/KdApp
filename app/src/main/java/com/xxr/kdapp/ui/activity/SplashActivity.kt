@@ -39,8 +39,8 @@ class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
         alphaAnimation?.duration = 2000
         alphaAnimation?.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationEnd(arg0: Animation) {
-//                UserUtils.navToMain(this@SplashActivity)
-                IntentUtils.startLocation(this@SplashActivity)
+                UserUtils.navToMain(this@SplashActivity)
+//                IntentUtils.startLocation(this@SplashActivity)
 
             }
 
@@ -57,10 +57,13 @@ class SplashActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks 
      * 去申请权限
      */
     private fun requestPermission() {
-        val perms = arrayOf(Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.ACCESS_FINE_LOCATION)
+        val perms = arrayOf(Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.CAMERA)
         if (EasyPermissions.hasPermissions(this, *perms)) {
-//            UserUtils.navToMain(this)
-            IntentUtils.startLocation(this)
+            UserUtils.navToMain(this)
+//            IntentUtils.startLocation(this)
         } else {
             // RC_CAMERA_AND_RECORD_AUDIO 请求码, 用于回调的时候判断是哪次申请 perms 要申请的权限
             EasyPermissions.requestPermissions(

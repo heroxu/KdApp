@@ -55,5 +55,10 @@ class VisitorsMineFragment : BaseFragment() {
         }
 
         msl_visitors_version_update.setRedPointVisible(View.VISIBLE)
+
+
+        msl_visitors_about_us.setOnClickListener {
+            IntentUtils.startCardRecognition(activity)
+        }
     }
 }
