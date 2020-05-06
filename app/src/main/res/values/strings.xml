@@ -6,6 +6,7 @@
 
     <string name="premission_denied_by_you">权限已经被您拒绝</string>
     <string name="prompt_open_permission">如果不打开权限则无法使用该功能,点击确定去打开权限</string>
+    <string name="request_permission">KotlinMvp应用需要以下权限，请允许</string>
     <string name="entry_community">一键入园</string>
     <string name="press_help">一键求助</string>
 
@@ -50,5 +51,6 @@
     <string name="record_enter_allow">允许通行</string>
     <string name="record_enter_refused">被拒绝</string>
     <string name="record_enter_cancel">已取消</string>
+
 
 </resources>
